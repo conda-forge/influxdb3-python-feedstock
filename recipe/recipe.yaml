@@ -11,8 +11,11 @@ source:
 
 build:
   noarch: python
-  script: python -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  script:
+    # Needed to get the version number right
+    - export GITHUB_REF="refs/tags/v${{ version }}"
+    - python -m pip install . -vv --no-deps --no-build-isolation
+  number: 1
 
 requirements:
   host:
@@ -34,6 +37,9 @@ tests:
       python_version:
         - ${{ python_min }}.*
         - "*"
+  - script:
+      # check that the package version matched expectations
+      - python -c "import importlib.metadata; v = importlib.metadata.version('influxdb3-python'); assert v == '${{ version }}', f'pip metadata version is {v!r}, expected ${{ version }}'"
 
 about:
   homepage: https://github.com/InfluxCommunity/influxdb3-python
