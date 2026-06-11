@@ -1,5 +1,5 @@
 context:
-  version: "0.19.0"
+  version: "0.20.0"
 
 package:
   name: influxdb3-python
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/i/influxdb3-python/influxdb3_python-${{ version }}.tar.gz
-  sha256: 4654f15cb56116321446daf3bbde6aefe075888014660218c2ef423da9679c3b
+  sha256: f1e28c2f4f244d48006beeb82be7aea82ebdd3b3e1807250d124b6f1d53c5943
 
 build:
   noarch: python
@@ -15,7 +15,7 @@ build:
     # Needed to get the version number right
     - export GITHUB_REF="refs/tags/v${{ version }}"
     - python -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
