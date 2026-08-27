@@ -1,5 +1,5 @@
 context:
-  version: "0.20.0"
+  version: "0.21.0"
 
 package:
   name: influxdb3-python
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/i/influxdb3-python/influxdb3_python-${{ version }}.tar.gz
-  sha256: f1e28c2f4f244d48006beeb82be7aea82ebdd3b3e1807250d124b6f1d53c5943
+  sha256: 6c7a84c0d8f56860d90eabd4c790b88ca4425b896588ad1a213a5173256d481b
 
 build:
   noarch: python
